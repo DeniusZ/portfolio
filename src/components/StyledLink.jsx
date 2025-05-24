@@ -12,15 +12,35 @@ const StyledLetter = styled.span`
 
 const StyledNavLink = styled(NavLink)`
   position: relative;
-  font-size: 3em;
-  letter-spacing: 0.08em;
+
   cursor: pointer;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
 
   &:hover ${StyledLetter} {
     color: #fff;
     text-shadow: 0 0 5px #fff, 0 0 15px #fff, 0 0 30px #fff;
-    font-size: 4.4rem;
+    /* font-size: 4.4rem; */
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    margin-top: 8px;
+    margin-left: 2rem;
+
+    transition: all 2s ease-in;
+  }
+
+  &:hover::after {
+    width: 100%;
+    /* text-shadow: 0 0 5px #fff, 0 0 15px #fff, 0 0 30px #fff; */
   }
 `;
 
@@ -29,7 +49,7 @@ export const StyledLink = ({ children, to }) => {
     <StyledLetter
       key={i}
       style={{
-        transitionDelay: `${i * 40}ms`,
+        transitionDelay: `${i * 350}ms`,
       }}
     >
       {letter}
